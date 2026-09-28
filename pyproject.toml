@@ -1,0 +1,19 @@
+[project]
+name = "colla-image-poc"
+version = "0.1.0"
+description = "Local photo curation experiment for Colla"
+requires-python = ">=3.12"
+dependencies = ["typer>=0.16", "rich>=14", "pillow>=11", "pillow-heif>=1.0", "opencv-python-headless>=4.11", "ImageHash>=4.3", "numpy>=2", "pandas>=2.2", "pyarrow>=20", "torch>=2.6", "transformers>=4.51,<5", "sentencepiece>=0.2", "protobuf>=5", "scikit-learn>=1.6", "gradio>=5,<7", "pydantic>=2.10", "pyyaml>=6"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "matplotlib>=3.10"]
+
+[project.scripts]
+colla-poc = "colla_poc.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/colla_poc"]
